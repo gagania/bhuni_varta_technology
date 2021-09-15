@@ -1,0 +1,22 @@
+Terdapat 3 Docker Container:
+1. Service user, menggunakan DB Mysql
+2. Service Katalog, menggunakan DB NoSQL
+3. Frontend
+
+- Asumsi Get JWT TOKEN (Service User)
+1. Asumsi Frontend akan melakukan login terlebih dahulu, 
+   bila sukses maka service akan mengenerate token JWT, disimpan di Redis,
+   kemudian akan mengirimkan response token terserbut ke frontend.
+
+GET Data User (Service User)
+1 .Frontend akan melakukan request ke service User disertai dengan token JWT yang telah dikirim
+   sebelumnya kemudian akan melakukan check ke Redis.
+
+- Asumsi Get JWT TOKEN (Service Katalog)
+1. Asumsi Frontend akan melakukan login terlebih dahulu, 
+   bila sukses maka service akan mengenerate token JWT, disimpan di Redis,
+   kemudian akan mengirimkan response token terserbut ke frontend.
+
+GET Data User (Service Katalog)
+1 .Frontend akan melakukan request ke service Katalog disertai dengan token JWT yang telah dikirim
+   sebelumnya kemudian akan melakukan check ke Redis.

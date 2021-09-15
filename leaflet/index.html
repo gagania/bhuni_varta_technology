@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Leaflet sample</title>
+      <link rel = "stylesheet" href = "lib/leaflet.css"/>
+      <script src = "lib//leaflet.js"></script>
+   </head>
+
+   <body>
+      <div id = "map" style = "width: 900px; height: 580px"></div>
+      <script>
+         // Creating map options
+         var mapOptions = {
+            center: [-6.284149, 106.727813],
+            zoom: 10
+         }
+         var locations = [
+            ["LOCATION_1", -6.084149, 106.727813],
+            ["LOCATION_2", -6.184149, 106.657813],
+            ["LOCATION_3", -6.284149, 106.447813],
+            ["LOCATION_4", -6.384149, 106.717813],
+            ["LOCATION_5", -6.484149, 106.627813],
+            ["LOCATION_5", -6.584149, 106.617813]
+        ];
+         // Creating a map object
+         var map = new L.map('map', mapOptions);
+         
+         // Creating a Layer object
+         var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+         
+         // Adding layer to the map
+         map.addLayer(layer);
+
+         for (var i = 0; i < locations.length; i++) {
+            marker = new L.marker([locations[i][1], locations[i][2]])
+                .bindPopup(locations[i][0])
+                .addTo(map);
+        }
+      </script>
+   </body>
+   
+</html>
